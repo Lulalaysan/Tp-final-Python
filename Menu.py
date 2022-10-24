@@ -39,30 +39,24 @@ Menú del anotador:
             libro = self.catalogo.libros
         for n in libro:
             print(f"Libro nº: {n.id} - Titulo: {n.titulo} - Autor: {n.autor}")
-
+    def Buscar_Libros_por_filtro(self):
+     filtro=input("Ingresar un flitro(titulo/autor)")
+     libros= self.catalogo.buscar(filtro)
+     if libros:
+                self.Mostrar_Libros(libros)
+   
     def Buscar_Libros(self):
-    
-       id = int(input("Ingresa una ID:"))
-       filtro=input("Ingresar filtro de busqueda:")
-       if id:
-           libros = self.catalogo.buscar_id(id)
-           if libros:
-              self.Mostrar_Libros(libros)
-       if filtro:
-           libros = self.catalogo.buscar(filtro)
-           if libros:
-              self.Mostrar_Libros(libros)
+        self.Buscar_Libros_por_filtro()
     def agregar_libro(self):
-     t= input("Ingresar titulo del libro:")
-     a= input("ingresar nombre del autor:")
-     self.catalogo.nuevo_libro(t, a)
+      t= input("Ingresar titulo del libro:")
+      a= input("ingresar nombre del autor:")
+      self.catalogo.nuevo_libro(t, a)
+
     def eliminar_libro(self):
-      ID=  int(input("Ingresa una ID:"))
-      filtro=  input("Ingresa un filtro(Autor/Titulo):")
-      if ID:
-        self.catalogo.eli_libro_por_id(ID)
-      if filtro:
-        self.catalogo.eli_libro_por_filtro(filtro)
+       Id= int(input("Ingresar ID"))
+       if Id:
+        self.catalogo.eli_libro_por_id(Id)
+
     def modificar_libro(self):
      Id = int(input("Ingresa una ID:"))
      titulo = input("Ingresa un titulo")
@@ -71,6 +65,7 @@ Menú del anotador:
          self.catalogo.mod_titulo_libro(Id, titulo)
      if autor:
         self.catalogo.mod_autor_libro(Id, autor)
+
     def salir(self):
         print("Cerrando sistema...")
         sys.exit(0)
@@ -78,10 +73,4 @@ Menú del anotador:
 if __name__ == "__main__":
     Menu().ejecutar()
 
-          
-          
-
-
-
-
-
+                  

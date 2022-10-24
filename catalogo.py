@@ -1,8 +1,8 @@
 from libro import Libros
 class Catalogo:
-    def _init_(self):
+    def __init__(self):
         l1 = Libros("IT","Stephen King")
-        l2 = Libros("Las cuatro estaciones del amor","Gregoire Delacourt")
+        l2 = Libros("Las cuatro estaciones_del_amor","Gregoire Delacourt")
         l3 = Libros("Rebelion en la granja","George Orwell")
         l4 = Libros("Martin Fierro","Jose Hernandez")
         self.libros = [l1, l2, l3, l4]
@@ -12,11 +12,10 @@ class Catalogo:
         self.libros.append(l)
 
     def buscar_id(self, id_libro):
-            for a in self.libros:
-               if a.id == id_libro:
+           for a in self.libros:
+            if a.id == id_libro:
                 return a
-               else:
-                 return print("No se ha encontrado el libro")
+           return None
 
     def mod_titulo_libro(self,id_libro, titulo):
         Libro = self.buscar_id(id_libro)
@@ -44,18 +43,3 @@ class Catalogo:
      if Libro:
         self.libros.remove(Libro)
         return print("El libro se ha eliminado exitosamente")  
-
-    def eli_libro_por_filtro(self, filtro):
-     list= self.buscar(filtro)
-     if list:
-        set(self.libros) - set(list)
-        return print("Los libros se han eliminado exitosamente")
-
-
-
-
-
-
-                                      
-
-
